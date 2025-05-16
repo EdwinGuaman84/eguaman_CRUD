@@ -8,7 +8,7 @@ using SQLite;
 
 namespace eguaman_CRUD.Modelos
 {
-    [Table("persona")]
+    [SQLite.Table("persona")]
     public class Persona
     {
         [PrimaryKey,AutoIncrement]

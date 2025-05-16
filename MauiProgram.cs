@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using eguaman_CRUD.Data;
+using eguaman_CRUD.Helpers;
+using Microsoft.Extensions.Logging;
 
 namespace eguaman_CRUD
 {
@@ -14,6 +16,8 @@ namespace eguaman_CRUD
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+            string dbPath = FileAccessHelper.GetLocalFilePath("personas.bd3");
+            builder.Services.AddSingleton<PersonRepository>(s => ActivatorUtilities.CreateInstance<PersonRepository>(s, dbPath));
 
 #if DEBUG
     		builder.Logging.AddDebug();
